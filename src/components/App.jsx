@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Phonebook, Container } from './App.styled';
-import { ContactForm } from '../components/ContactForm/ContactForm';
-import { ContactList } from '../components/ContactList/ContactList';
-import { Filter } from '../components/Filter/Filter';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 export const App = () => {
   const users = useSelector(state => state.contacts.items);
