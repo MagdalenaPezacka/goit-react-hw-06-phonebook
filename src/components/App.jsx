@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { Phonebook, Container } from './App.styled';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
@@ -6,6 +7,13 @@ import { Filter } from './Filter/Filter';
 
 export const App = () => {
   const users = useSelector(state => state.contacts.items);
+  const [contacts] = useState(
+    JSON.parse(localStorage.getItem('contacts')) ?? []
+  );
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <Phonebook>
